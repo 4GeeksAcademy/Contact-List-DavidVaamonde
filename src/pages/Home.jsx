@@ -7,7 +7,10 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
+			<h1>Bienvenido a Contact List!! </h1>
+			<p>Aquí teneis a un bebé bonito</p>
+			<p>| | | | | | |</p>
+			<p>vvvvvvv</p>
 			<p>
 				<img src={rigoImageUrl} />
 			</p>
