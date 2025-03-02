@@ -7,13 +7,16 @@ function ContactCard(props) {
     const handleDelete = async () => {
         console.log('Eliminando contacto con id:', props.contactId);
         try {
-            const response = await fetch(`https://playground.4geeks.com/contact/agendas/Dani/contacts/${props.contactId}`, {
+            const response = await fetch(`https://playground.4geeks.com/contact/agendas/davidvb/contacts/${props.contactId}`, {
                 method: "DELETE",
             });
 
             if (!response.ok) {
                 throw new Error(`Error al eliminar el contacto: ${response.status}`);
             }
+
+            console.log("Delete OK: "+response.ok);
+            console.log("Delete Status: "+response.status);
 
 
             props.onDeleteContact(props.contactId);
@@ -24,43 +27,48 @@ function ContactCard(props) {
     };
 
     return (
-        <div className="card mt-5" style={{ backgroundColor: "orange", marginLeft: "20rem", width: "15rem", height: "16rem" }}>
-            <img src="https://cdn-icons-png.flaticon.com/512/5995/5995295.png" className="card-img-top" alt="Contact" />
+        <div className="card mt-3">
 
+            <img src="https://cabroworld.com/wp-content/uploads/2024/11/70aca08d-c773-4a65-9ae0-842b6611fff6_16-9-aspect-ratio_default_0.webp" className="card-img-top" alt="Contact" />
 
-
-
-            <ul className="list-group list-group-flush " style={{ borderRadius: "10px", width: "15rem" }}>
-                <div className="card-body bg-white"><h5 className="card-title">{props.contactName}</h5></div>
-                <li className="list-group-item ">{props.contactMail}</li>
-                <li className="list-group-item ">{props.contactPhone}</li>
-                <li className="list-group-item ">{props.contactAddress}</li>
+            <ul className="list-group list-group-flush ">
+                <div className="card-body bg-white">
+                    <h5 className="card-title">
+                        {props.contactName}
+                    </h5>
+                </div>
+                <li className="list-group-item ">
+                    Correo electrónico: {props.contactMail}
+                </li>
+                <li className="list-group-item ">
+                    Teléfono: {props.contactPhone}
+                </li>
+                <li className="list-group-item ">
+                    Domicilio: {props.contactAddress}
+                </li>
             </ul>
 
-            <div className="card-body " style={{ display: "flex" }}>
+            <div className="card-body">
 
                 <button
-                    className="btn btn-outline bg-red  "
-                    style={{ marginRight: "20px", alignItems: "center", display: "flex", width: "4rem", height: "3rem", background: "orange", fontSize: "12px", padding: "0.2rem 0.5rem", fontWeight: "bold" }}
-                    onClick={() => navigate(`/view-contact/${props.contactId}`)}
+                    className="btn btn-primary m-3"
+                    onClick={() => navigate(`/viewcontact/${props.contactId}`)}
                 >
-                    View Contact
+                    Ver Contacto
                 </button>
 
                 <button
-                    className="btn btn-outline bg-red  "
-                    style={{ marginRight: "20px", alignItems: "center", display: "flex", width: "4rem", height: "3rem", background: "orange", fontSize: "12px", padding: "0.2rem 0.5rem", fontWeight: "bold" }}
-                    onClick={() => navigate(`/edit-contact/${props.contactId}`)}
+                    className="btn btn-success m-3"
+                    onClick={() => navigate(`/editcontact/${props.contactId}`)}
                 >
-                    Edit Contact
+                    Editar Contacto
                 </button>
 
                 <button
-                    className="btn btn-outline bg-red "
-                    style={{ marginRight: "20px", alignItems: "center", display: "flex", width: "4rem", height: "3rem", background: "orange", fontSize: "12px", padding: "0.2rem 0.5rem", fontWeight: "bold" }}
+                    className="btn btn-danger m-3"
                     onClick={handleDelete}
                 >
-                    Delete
+                    Eliminar
                 </button>
             </div>
         </div>

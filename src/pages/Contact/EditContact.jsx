@@ -3,11 +3,14 @@ import useGlobalReducer from "../../hooks/useGlobalReducer.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const EditContact = () => {
+export const EditContact = () => {
     const { store, dispatch } = useGlobalReducer();
     const { id } = useParams();
     const [contact, setContact] = useState(null);
-    const [loading, setLoading] = useState(true)
+
+    //loading: para mostrar un mensaje mientras esperamos
+    const [loading, setLoading] = useState(true);
+
     const navigate = useNavigate();
     const [currentContact, setCurrentContact] = useState({});
 
@@ -31,7 +34,7 @@ const EditContact = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`https://playground.4geeks.com/contact/agendas/Dani/contacts/${id}`, {
+            const response = await fetch(`https://playground.4geeks.com/contact/agendas/davidvb/contacts/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,12 +65,15 @@ const EditContact = () => {
         });
     };
 
-    if (
-        loading
-    ) {
-        return (
-            <div> <h2> Cargando... </h2></div>
-        )
+    //Si está cargando, muestra el spinner de cargando
+    if (loading) {
+        return(
+            <div className='d-flex justify-content-center'>
+                <div className='spinner-border text-primary' role='status'>
+                    <span className='visually-hidden'>Cargando...</span>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -113,10 +119,8 @@ const EditContact = () => {
                     onClick={() => navigate(`/contacts/${contact.id}`)}></button>
             </form>
             <Link to="/">
-                <button className='btn btn-primary'>Volver</button>
+                <button className='btn btn-primary mt-3 ms-3'>Volver</button>
             </Link>
         </div>
     );
 };
-
-export default EditContact;

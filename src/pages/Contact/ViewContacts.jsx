@@ -4,7 +4,7 @@ import useGlobalReducer from "../../hooks/useGlobalReducer.jsx";
 import { Link } from "react-router-dom";
 
 
-const ViewContacts = () => {
+export const ViewContacts = () => {
     const { id } = useParams();
     const [contact, setContact] = useState(null);
     const { store, dispatch } = useGlobalReducer();
@@ -30,7 +30,7 @@ const ViewContacts = () => {
             <h2>Detalles del Contacto</h2>
             <div className="card bg-secondary mb-2 mt-2 text-center" style={{ marginLeft: "20rem", width: "20rem" }}>
 
-                <img src="https://cdn-icons-png.flaticon.com/512/5995/5995295.png" className="card-img-top" alt="Contact" />
+                <img src="https://cabroworld.com/wp-content/uploads/2024/11/70aca08d-c773-4a65-9ae0-842b6611fff6_16-9-aspect-ratio_default_0.webp" className="card-img-top" alt="Contact" />
                 <div className="card-body">
                     <h5 className="card-title">{contact.name}</h5>
                 </div>
@@ -62,10 +62,8 @@ const ViewContacts = () => {
             </div>
 
             <Link to="/">
-                <button className='btn btn-primary'>Volver</button>
+                <button className='btn btn-primary mt-3 ms-3'>Volver</button>
             </Link>
         </div>
     );
-};
-
-export default ViewContacts;
+}

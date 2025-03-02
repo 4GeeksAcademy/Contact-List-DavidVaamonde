@@ -57,56 +57,76 @@ export const AddContact = () => {
     return (
         <>
             <div className='container'>
-                <h3>Añade contacto</h3>
+                <h3>Añade un nuevo contacto</h3>
 
                 <form onSubmit={handleSubmit}>
 
-                <input
-                    type="text"
-                    name="name"
-                    value={newContact.name}
-                    onChange={handleChange}
-                    placeholder="Name"
-                    required
-                    maxLength={20}
-                />
+                <p>
+                    <label>Nombre completo:</label>
+                    <br />
+                    <input
+                        type="text"
+                        name="name"
+                        value={newContact.name}
+                        onChange={handleChange}
+                        placeholder="Añade nombre y apellidos..."
+                        required
+                        maxLength={20}
+                        className='form-control'
+                    />
+                </p>
+                
+                <p>
+                    <label>Correo electrónico:</label>
+                    <br />
+                    <input
+                        type="email"
+                        name="email"
+                        value={newContact.email}
+                        onChange={handleChange}
+                        placeholder="Añade un correo electrónico..."
+                        required
+                        className='form-control'
+                    />
+                </p>
 
-                <input
-                    type="email"
-                    name="email"
-                    value={newContact.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                    required
-                />
+                <p>
+                    <label>Teléfono: </label>
+                    <br />
+                    <input
+                        type="text"
+                        name="phone"
+                        value={newContact.phone}
+                        onChange={handleChange}
+                        placeholder="Añade un teléfono..."
+                        required
+                        className='form-control'
+                    />
+                </p>
 
-                <input
-                    type="text"
-                    name="phone"
-                    value={newContact.phone}
-                    onChange={handleChange}
-                    placeholder="Phone"
-                    required
-                />
-
-                <input
-                    type="text"
-                    name="address"
-                    value={newContact.address}
-                    onChange={handleChange}
-                    placeholder="Address"
-                    required
-                />
+                <p>
+                    <label>Dirección: </label>
+                    <br />
+                    <input
+                        type="text"
+                        name="address"
+                        value={newContact.address}
+                        onChange={handleChange}
+                        placeholder="Añade una dirección..."
+                        required
+                        className='form-control'
+                    />
+                </p>
 
                     <button
-                        className='btn bg-white mt-1 me-3'
+                        className='btn btn-success mt-1 me-3'
                         onClick={() => navigate(`/contacts${props.contactId}`)}>
                         Añadir
                     </button>
                 </form>
             </div>
             <Link to="/">
-                <button className='btn btn-primary'>Volver</button>
+                <button className='btn btn-primary mt-3 ms-3'>Volver</button>
             </Link>
         </>
     );

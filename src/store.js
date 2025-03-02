@@ -3,9 +3,11 @@ export const initialStore=()=>{
     
     contacts: [
       {
-        id: 1,
-        title: "Make the bed",
-        background: null,
+        "name": "",
+        "phone": "",
+        "email": "",
+        "address": "",
+        "id": 0
       },
     ],
     userRole: ""
@@ -16,16 +18,27 @@ export default function storeReducer(store, action = {}) {
 
   switch(action.type){
 
-    case 'add_task':
-
-      const { id,  color } = action.payload
+    case 'setContacts':
 
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        contacts: action.payload
       };
+
+      case "editcontact":
+        return {
+          ...store,
+          contacts: [...store.contacts, action.payload]
+        };
+  
+      case "deleteContact":
+        return {
+          ...store,
+          contacts: store.contacts.filter(contact => contact.id !== action.payload)
+        };
+
+    
     default:
-      throw Error('Acción desconocida.');
-      
+      return store;
   }    
 }

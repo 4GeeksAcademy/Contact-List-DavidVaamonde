@@ -10,7 +10,7 @@ export const ContactList = () => {
     useEffect(() => {
         const fetchContacts = async () => {
             try {
-                const response = await fetch('https://playground.4geeks.com/contact/agendas/Dani');
+                const response = await fetch('https://playground.4geeks.com/contact/agendas/davidvb');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
@@ -55,7 +55,7 @@ export const ContactList = () => {
                 </div>
             </div>
             <Link to="/">
-                <button className='btn btn-primary'>Volver a Home</button>
+                <button className='btn btn-primary mt-3 ms-3'>Volver a Home</button>
             </Link>
         </>
     )
