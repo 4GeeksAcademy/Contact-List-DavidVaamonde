@@ -31,32 +31,27 @@ export const ViewContacts = () => {
             <div className="card bg-secondary mb-2 mt-2 text-center" style={{ marginLeft: "20rem", width: "20rem" }}>
 
                 <img src="https://cabroworld.com/wp-content/uploads/2024/11/70aca08d-c773-4a65-9ae0-842b6611fff6_16-9-aspect-ratio_default_0.webp" className="card-img-top" alt="Contact" />
-                <div className="card-body">
+                <div className="card-body bg-light">
                     <h5 className="card-title">{contact.name}</h5>
-                </div>
+               
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">Correo: {contact.email}</li>
                     <li className="list-group-item">Teléfono: {contact.phone}</li>
                     <li className="list-group-item">Dirección: {contact.address}</li>
                 </ul>
-
-                <div className="card-body">
                     <button
-                        className="btn btn-outline bg-red mt-1 mt-2"
-                        style={{ justifyContent: "center", alignItems: "center", display: "flex", width: "4rem", height: "2rem", background: "cyan", fontSize: "14px", padding: "0.2rem 0.5rem" }}
-                        onClick={() => navigate(`/edit-contact/${contact.id}`)}
+                        className="btn btn-outline btn-success mx-2"
+                        onClick={() => navigate(`/editcontact/${contact.id}`)}
                     >
-                        Edit
+                        Editar
                     </button>
 
                     <button
-                        className="btn btn-outline bg-red mt-1 mt-2"
-                        style={{ justifyContent: "center", alignItems: "center", display: "flex", width: "4rem", height: "2rem", background: "cyan", fontSize: "14px", padding: "0.2rem 0.5rem" }}
+                        className="btn btn-outline btn-primary mx-2"
                         onClick={() => navigate(`/contacts/`)}
                     >
-                        Back
+                        Volver a Contact List
                     </button>
-
 
                 </div>
             </div>

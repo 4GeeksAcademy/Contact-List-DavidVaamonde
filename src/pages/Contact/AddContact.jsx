@@ -66,7 +66,7 @@ export const AddContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="name"
+                        name="nombre"
                         value={newContact.name}
                         onChange={handleChange}
                         placeholder="Añade nombre y apellidos..."
@@ -95,7 +95,7 @@ export const AddContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="phone"
+                        name="telefono"
                         value={newContact.phone}
                         onChange={handleChange}
                         placeholder="Añade un teléfono..."
@@ -109,7 +109,7 @@ export const AddContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="address"
+                        name="direccion"
                         value={newContact.address}
                         onChange={handleChange}
                         placeholder="Añade una dirección..."

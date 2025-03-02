@@ -7,7 +7,6 @@ export const EditContact = () => {
     const { store, dispatch } = useGlobalReducer();
     const { id } = useParams();
     const [contact, setContact] = useState(null);
-
     //loading: para mostrar un mensaje mientras esperamos
     const [loading, setLoading] = useState(true);
 
@@ -15,7 +14,6 @@ export const EditContact = () => {
     const [currentContact, setCurrentContact] = useState({});
 
     useEffect(() => {
-
 
         const fetchContact = () => {
 
@@ -45,11 +43,12 @@ export const EditContact = () => {
 
             navigate("/contacts");
 
-
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
-
             }
+
+            console.log("Put OK: "+response.ok);
+            console.log("PUT Status: "+response.status);
 
         } catch (error) {
             console.error("Hubo un problema con la solicitud:", error);
@@ -77,49 +76,75 @@ export const EditContact = () => {
     }
 
     return (
-        <div className="addContact">
-            <h2>Add Contact</h2>
+        <div className="container">
+            <h2>Editar contacto nº {currentContact.id}</h2>
             <form onSubmit={handleEdit}>
-                <input
-                    type="text"
-                    name="name"
-                    value={currentContact.name}
-                    onChange={handleChange}
-                    placeholder="Name"
-                    required
-                    maxLength={20}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    value={currentContact.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                    required
-                />
-                <input
-                    type="text"
-                    name="phone"
-                    value={currentContact.phone}
-                    onChange={handleChange}
-                    placeholder="Phone"
-                    required
-                />
-                <input
-                    type="text"
-                    name="address"
-                    value={currentContact.address}
-                    onChange={handleChange}
-                    placeholder="Address"
-                    required
-                />
+
+                <p>
+                    <label>Nombre completo:</label>
+                    <br />
+                    <input
+                        type="text"
+                        name="Añade un nombre..."
+                        value={currentContact.name}
+                        onChange={handleChange}
+                        placeholder="Name"
+                        required
+                        maxLength={20}
+                        className="form-control"
+                    />
+                </p>
+                
+                <p>
+                    <label>Correo electrónico:</label>
+                    <br />
+                    <input
+                        type="email"
+                        name="email"
+                        value={currentContact.email}
+                        onChange={handleChange}
+                        placeholder="Añade un correo electrónico..."
+                        required
+                        className="form-control"
+                    />
+                </p>
+                
+                <p>
+                    <label>Teléfono: </label>
+                    <br />
+                    <input
+                        type="text"
+                        name="telefono"
+                        value={currentContact.phone}
+                        onChange={handleChange}
+                        placeholder="Añade un número de teléfono..."
+                        required
+                        className="form-control"
+                    />
+                </p>
+                
+                <p>
+                    <label>Dirección:</label>
+                    <br />
+                    <input
+                        type="text"
+                        name="direccion"
+                        value={currentContact.address}
+                        onChange={handleChange}
+                        placeholder="Address"
+                        required
+                        className="form-control"
+                    />
+                </p>
+                
                 <button
-                    className="btn bg-white mt-1 me-3"
-                    style={{ justifyContent: "center", alignItems: "center", width: "5rem", height: "2rem", fontSize: "12px", padding: "0.1rem 0.2rem" }}
-                    onClick={() => navigate(`/contacts/${contact.id}`)}></button>
+                    className="btn btn-success my-1 mx-3"
+                    onClick={() => navigate(`/contacts/${contact.id}`)}>
+                        Aceptar
+                </button>
             </form>
             <Link to="/">
-                <button className='btn btn-primary mt-3 ms-3'>Volver</button>
+                <button className='btn btn-primary mt-3 ms-3'>Volver a Home</button>
             </Link>
         </div>
     );
