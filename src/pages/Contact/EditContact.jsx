@@ -85,10 +85,10 @@ export const EditContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="Añade un nombre..."
+                        name="name"
                         value={currentContact.name}
                         onChange={handleChange}
-                        placeholder="Name"
+                        placeholder="Añade un nombre..."
                         required
                         maxLength={20}
                         className="form-control"
@@ -114,7 +114,7 @@ export const EditContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="telefono"
+                        name="phone"
                         value={currentContact.phone}
                         onChange={handleChange}
                         placeholder="Añade un número de teléfono..."
@@ -128,10 +128,10 @@ export const EditContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="direccion"
+                        name="address"
                         value={currentContact.address}
                         onChange={handleChange}
-                        placeholder="Address"
+                        placeholder="Añade una dirección..."
                         required
                         className="form-control"
                     />

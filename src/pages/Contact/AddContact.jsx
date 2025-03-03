@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import useGlobalReducer from '../../hooks/useGlobalReducer.jsx';
 import { useNavigate } from 'react-router-dom';
+
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
 
 export const AddContact = () => {
 
     const {dispatch} = useGlobalReducer();
+    const navigate = useNavigate();
+
     const [newContact, setNewContact] = useState({
         name: "",
         email: "",
         phone: "",
         address: "",
     });
-    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setNewContact({
@@ -66,13 +67,13 @@ export const AddContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="nombre"
+                        name="name"
                         value={newContact.name}
                         onChange={handleChange}
                         placeholder="Añade nombre y apellidos..."
-                        required
-                        maxLength={20}
                         className='form-control'
+                        required
+                        
                     />
                 </p>
                 
@@ -85,8 +86,9 @@ export const AddContact = () => {
                         value={newContact.email}
                         onChange={handleChange}
                         placeholder="Añade un correo electrónico..."
-                        required
                         className='form-control'
+                        required
+                        
                     />
                 </p>
 
@@ -95,12 +97,13 @@ export const AddContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="telefono"
+                        name="phone"
                         value={newContact.phone}
                         onChange={handleChange}
                         placeholder="Añade un teléfono..."
-                        required
                         className='form-control'
+                        required
+                        
                     />
                 </p>
 
@@ -109,7 +112,7 @@ export const AddContact = () => {
                     <br />
                     <input
                         type="text"
-                        name="direccion"
+                        name="address"
                         value={newContact.address}
                         onChange={handleChange}
                         placeholder="Añade una dirección..."
